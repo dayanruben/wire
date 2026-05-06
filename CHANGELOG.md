@@ -4,6 +4,87 @@ Change Log
 Unreleased
 ----------
 
+Version 7.0.0-alpha01
+---------------------
+
+_2026-05-06_
+
+### Common
+
+* ⚠ Breaking: Correctly merge singular embedded message fields when the same field appears multiple
+  times on the wire (#3538)
+  Previously, the last value would have won.
+* Fix parsing of trailing comments on Windows (#2908)
+* Avoid mixed path separators in `Location` (#3576)
+
+### Gradle plugin
+
+* ⚠ Breaking: Gradle plugin now requires Gradle 8.2+.
+* ⚠ Breaking: Expose Wire extension and output configuration as Gradle `Property`,
+  `ListProperty`, and `MapProperty` values so the DSL can use provider-backed configuration
+  (#3570, #3582 by [Stephen Edwards][steve-the-edwards])
+  In Kotlin DSL, migrate provider-backed output and custom target assignments to `set(...)`.
+
+  ```kotlin
+  // Before.
+  wire {
+    protoLibrary = true
+
+    kotlin {
+      out = "$buildDir/generated/wire"
+    }
+
+    custom {
+      includes = listOf("com.example.pizza.*")
+      excludes = listOf("com.example.sales.*")
+      exclusive = false
+      options = mapOf("mode" to "lite")
+      schemaHandlerFactoryClass = "com.example.CustomSchemaHandlerFactory"
+    }
+  }
+
+  // After.
+  wire {
+    protoLibrary.set(true)
+
+    kotlin {
+      out.set(layout.buildDirectory.dir("generated/wire").map { it.asFile.path })
+    }
+
+    custom {
+      includes.set(listOf("com.example.pizza.*"))
+      excludes.set(listOf("com.example.sales.*"))
+      exclusive.set(false)
+      options.set(mapOf("mode" to "lite"))
+      schemaHandlerFactoryClass.set("com.example.CustomSchemaHandlerFactory")
+    }
+  }
+  ```
+
+* Register generated Kotlin sources with Kotlin 2.3's `generatedKotlin` API when available
+  (#3573)
+* Avoid duplicate generated sources in Android Kotlin source release jars (#3566)
+
+### Kotlin
+
+* Add `oneofMode` for Kotlin oneof generation (#3581)
+  The supported options are:
+
+  * `flat`: the default. Generate each oneof field as a separate nullable property on the message
+    class, honoring `boxOneOfsMinSize`.
+  * `boxed`: generate every oneof as boxed `OneOf` values, as if `boxOneOfsMinSize = 1`.
+  * `sealed_class`: generate one nullable property of a nested sealed class type, with one data
+    class subtype per oneof field.
+
+### Swift
+
+* Support Swift 6 source compatibility (#3232)
+
+### Dependencies
+
+* Update Gradle to 9.5.0 and Android Gradle Plugin to 9.2.1.
+* Update Kotlin to 2.3.21, KotlinPoet to 2.3.0, JavaPoet to 0.15.0 and Gson to 2.14.0.
+
 Version 6.2.0
 ---------------------
 
@@ -1871,6 +1952,7 @@ Initial version.
  [reflect]: https://github.com/grpc/grpc/blob/master/doc/server-reflection.md
  [sashaweiss-signal]: https://github.com/sashaweiss-signal
  [staktrace]: https://github.com/staktrace
+ [steve-the-edwards]: https://github.com/steve-the-edwards
  [stuartwdouglas]: https://github.com/stuartwdouglas
  [swiftblogpost]: https://cashapp.github.io/2020-08-19/wire-support-for-swift-part-1
  [tejasna]: https://github.com/tejasna
