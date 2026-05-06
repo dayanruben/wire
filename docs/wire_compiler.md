@@ -9,7 +9,7 @@ Getting Started
 ---------------
 
 The best way to configure and execute the Wire compiler is via our [Gradle][gradle] plugin. It
-requires Gradle 5.5 or newer.
+requires Gradle 8.2 or newer.
 
 A typical project has `.proto` files in the standard `src/main/proto` directory.
 
