@@ -595,7 +595,7 @@ class KotlinGenerator private constructor(
               }
               is OneOf -> {
                 val fieldName = newName(fieldOrOneOf.name, fieldOrOneOf)
-                newName(boxedOneOfClassName(fieldOrOneOf.name), boxedOneOfClassName(fieldOrOneOf.name))
+                newName(oneOfClassName(fieldOrOneOf), boxedOneOfClassName(fieldOrOneOf.name))
                 if (oneofMode != OneofMode.SEALED_CLASS) {
                   val keysFieldName = boxedOneOfKeysFieldName(fieldName)
                   check(newName(keysFieldName) == keysFieldName) {
@@ -3051,10 +3051,17 @@ class KotlinGenerator private constructor(
   }
 
   /**
-   * Converts a snake_case field name to PascalCase for use as a sealed class subtype name.
+   * Converts a snake_case name to CamelCase for use as a sealed oneof type name.
    * For example: `card_id` → `CardId`, `bank_account` → `BankAccount`.
    */
-  private fun String.toSealedSubclassName(): String = split("_").joinToString("") { part -> part.replaceFirstChar { it.uppercaseChar() } }
+  private fun String.toCamelCase(): String = split("_").joinToString("") { part ->
+    part.replaceFirstChar { it.uppercaseChar() }
+  }
+
+  private fun oneOfClassName(oneOf: OneOf): String = when (oneofMode) {
+    OneofMode.SEALED_CLASS -> oneOf.name.toCamelCase()
+    else -> boxedOneOfClassName(oneOf.name)
+  }
 
   /**
    * Generates a sealed class for a oneof.
@@ -3324,7 +3331,7 @@ class KotlinGenerator private constructor(
   private fun sealedSubclassNameAllocator(oneOf: OneOf): NameAllocator = sealedSubclassNameAllocatorStore.getOrPut(oneOf) {
     NameAllocator(preallocateKeywords = !escapeKotlinKeywords).apply {
       for (field in oneOf.fields) {
-        newName(field.name.toSealedSubclassName(), field)
+        newName(field.name.toCamelCase(), field)
       }
     }
   }
