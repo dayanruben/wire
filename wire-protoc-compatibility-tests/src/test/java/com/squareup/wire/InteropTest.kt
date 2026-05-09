@@ -296,16 +296,16 @@ class InteropTest {
     )
     checker.check(
       InteropSealedOneOfBuildersOnlyK2.Builder()
-        .first_method(InteropSealedOneOfBuildersOnlyK2.First_method.A("Hello"))
+        .first_method(InteropSealedOneOfBuildersOnlyK2.FirstMethod.A("Hello"))
         .h("in the middle")
-        .second_method(InteropSealedOneOfBuildersOnlyK2.Second_method.G(InteropSealedOneOfBuildersOnlyK2.SealedMessage.build { content("content") }))
+        .second_method(InteropSealedOneOfBuildersOnlyK2.SecondMethod.G(InteropSealedOneOfBuildersOnlyK2.SealedMessage.build { content("content") }))
         .build(),
     )
     checker.check(
       InteropSealedOneOfBuildersOnlyK3.Builder()
-        .first_method(InteropSealedOneOfBuildersOnlyK3.First_method.A("Hello"))
+        .first_method(InteropSealedOneOfBuildersOnlyK3.FirstMethod.A("Hello"))
         .h("in the middle")
-        .second_method(InteropSealedOneOfBuildersOnlyK3.Second_method.G(InteropSealedOneOfBuildersOnlyK3.SealedMessage.build { content("content") }))
+        .second_method(InteropSealedOneOfBuildersOnlyK3.SecondMethod.G(InteropSealedOneOfBuildersOnlyK3.SealedMessage.build { content("content") }))
         .build(),
     )
   }
@@ -321,16 +321,16 @@ class InteropTest {
     )
     checker.check(
       InteropSealedOneOfK2(
-        first_method = InteropSealedOneOfK2.First_method.A("Hello"),
+        first_method = InteropSealedOneOfK2.FirstMethod.A("Hello"),
         h = "in the middle",
-        second_method = InteropSealedOneOfK2.Second_method.G(InteropSealedOneOfK2.SealedMessage(content = "content")),
+        second_method = InteropSealedOneOfK2.SecondMethod.G(InteropSealedOneOfK2.SealedMessage(content = "content")),
       ),
     )
     checker.check(
       InteropSealedOneOfK3(
-        first_method = InteropSealedOneOfK3.First_method.A("Hello"),
+        first_method = InteropSealedOneOfK3.FirstMethod.A("Hello"),
         h = "in the middle",
-        second_method = InteropSealedOneOfK3.Second_method.G(InteropSealedOneOfK3.SealedMessage(content = "content")),
+        second_method = InteropSealedOneOfK3.SecondMethod.G(InteropSealedOneOfK3.SealedMessage(content = "content")),
       ),
     )
   }

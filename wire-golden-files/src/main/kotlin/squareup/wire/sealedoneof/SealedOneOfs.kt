@@ -129,11 +129,11 @@ public class SealedOneOfs private constructor(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<SealedOneOfs> = object : ProtoAdapter<SealedOneOfs>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      SealedOneOfs::class, 
-      "type.googleapis.com/squareup.wire.sealedoneof.SealedOneOfs", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      SealedOneOfs::class,
+      "type.googleapis.com/squareup.wire.sealedoneof.SealedOneOfs",
+      PROTO_2,
+      null,
       "squareup/wire/sealed_oneof.proto"
     ) {
       override fun encodedSize(`value`: SealedOneOfs): Int {

@@ -2246,6 +2246,30 @@ class KotlinGeneratorTest {
     )
   }
 
+  @Test fun sealedOneofGeneratesCamelCaseClassName() {
+    val schema = buildSchema {
+      add(
+        "message.proto".toPath(),
+        """
+        |syntax = "proto2";
+        |message PaymentMethodChoice {
+        |  oneof payment_method {
+        |    string card_id = 1;
+        |  }
+        |}
+        """.trimMargin(),
+      )
+    }
+    val code = KotlinWithProfilesGenerator(schema)
+      .generateKotlin("PaymentMethodChoice", oneofMode = OneofMode.SEALED_CLASS)
+    assertThat(code).contains("public val payment_method: PaymentMethod? = null")
+    assertThat(code).contains("public sealed class PaymentMethod")
+    assertThat(code).contains("public data class CardId(")
+    assertThat(code).contains("is PaymentMethod.CardId ->")
+    assertThat(code).contains("1 -> payment_method = PaymentMethod.CardId(")
+    assertThat(code).doesNotContain("public sealed class Payment_method")
+  }
+
   @Test fun sealedOneofAdapterEncodesAndDecodesCorrectly() {
     val schema = buildSchema {
       add(
