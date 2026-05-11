@@ -4,6 +4,15 @@ Change Log
 Unreleased
 ----------
 
+Version 7.0.0-alpha02
+---------------------
+
+_2026-05-11_
+
+### Kotlin
+
+* ⚠ Breaking: CamelCase for generated oneof's as sealed classes (#3592)
+
 Version 7.0.0-alpha01
 ---------------------
 
