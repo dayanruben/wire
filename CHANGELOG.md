@@ -4,6 +4,17 @@ Change Log
 Unreleased
 ----------
 
+Version 6.3.0
+---------------------
+
+_2026-05-13_
+
+### Common
+
+* Security: Reject negative lengths when skipping groups, so crafted protobuf payloads throw
+  `ProtocolException` instead of unchecked runtime exceptions (#3597,
+  [GHSA-7xpr-hc2w-34m9][GHSA-7xpr-hc2w-34m9], reported by [TrekLaps][TrekLaps])
+
 Version 7.0.0-alpha02
 ---------------------
 
@@ -1925,11 +1936,13 @@ Initial version.
 
  [Egorand]: https://github.com/Egorand
  [Endeavour233]: https://github.com/Endeavour233
+ [GHSA-7xpr-hc2w-34m9]: https://github.com/square/wire/security/advisories/GHSA-7xpr-hc2w-34m9
  [JGulbronson]: https://github.com/JGulbronson
  [JakeWharton]: https://github.com/JakeWharton
  [JustinBis]: https://github.com/JustinBis
  [MariusVolkhart]: https://github.com/MariusVolkhart
  [ShayOinif]: https://github.com/ShayOinif
+ [TrekLaps]: https://github.com/TrekLaps
  [aaron-edwards]: https://github.com/aaron-edwards
  [amorde]: https://github.com/amorde
  [bom]: https://docs.gradle.org/6.2/userguide/platforms.html#sub:bom_import
