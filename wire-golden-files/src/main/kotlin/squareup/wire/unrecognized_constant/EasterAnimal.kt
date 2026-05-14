@@ -41,8 +41,8 @@ public sealed class EasterAnimal(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<EasterAnimal> = object : EnumAdapter<EasterAnimal>(
-      EasterAnimal::class, 
-      PROTO_3, 
+      EasterAnimal::class,
+      PROTO_3,
       EasterAnimal.EASTER_ANIMAL_DEFAULT
     ) {
       override fun fromValue(`value`: Int): EasterAnimal? = EasterAnimal.fromValue(`value`)

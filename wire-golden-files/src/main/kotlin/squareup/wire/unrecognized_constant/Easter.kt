@@ -140,11 +140,11 @@ public class Easter private constructor(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<Easter> = object : ProtoAdapter<Easter>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      Easter::class, 
-      "type.googleapis.com/squareup.wire.unrecognized_constant.Easter", 
-      PROTO_3, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      Easter::class,
+      "type.googleapis.com/squareup.wire.unrecognized_constant.Easter",
+      PROTO_3,
+      null,
       "squareup/wire/easter_unrecognized_enum.proto"
     ) {
       override fun encodedSize(`value`: Easter): Int {

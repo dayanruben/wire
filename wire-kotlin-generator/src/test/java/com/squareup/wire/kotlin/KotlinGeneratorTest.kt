@@ -112,6 +112,27 @@ class KotlinGeneratorTest {
     assertThat(code).contains("data class Unrecognized internal constructor(")
   }
 
+  @Test fun generatedAdaptersDoNotHaveTrailingSpaces() {
+    val schema = buildSchema {
+      add(
+        "message.proto".toPath(),
+        """
+        |message Message {
+        |  optional Enum value = 1;
+        |}
+        |
+        |enum Enum {
+        |  A = 0;
+        |}
+        """.trimMargin(),
+      )
+    }
+    val generator = KotlinWithProfilesGenerator(schema)
+
+    assertThat(generator.generateKotlin("Message")).doesNotContain(" \n")
+    assertThat(generator.generateKotlin("Enum")).doesNotContain(" \n")
+  }
+
   @Test fun defaultValues() {
     val schema = buildSchema {
       add(

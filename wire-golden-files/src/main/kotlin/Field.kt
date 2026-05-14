@@ -50,11 +50,11 @@ public class Field(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<Field> = object : ProtoAdapter<Field>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      Field::class, 
-      "type.googleapis.com/Field", 
-      PROTO_3, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      Field::class,
+      "type.googleapis.com/Field",
+      PROTO_3,
+      null,
       "squareup/wire/hundreds_redacted.proto"
     ) {
       override fun encodedSize(`value`: Field): Int {

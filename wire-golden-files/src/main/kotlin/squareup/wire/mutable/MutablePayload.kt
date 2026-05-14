@@ -100,11 +100,11 @@ public class MutablePayload(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<MutablePayload> = object : ProtoAdapter<MutablePayload>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      MutablePayload::class, 
-      "type.googleapis.com/squareup.wire.mutable.Payload", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      MutablePayload::class,
+      "type.googleapis.com/squareup.wire.mutable.Payload",
+      PROTO_2,
+      null,
       "squareup/wire/mutable_types.proto"
     ) {
       override fun encodedSize(`value`: MutablePayload): Int {
@@ -178,8 +178,8 @@ public class MutablePayload(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<Type> = object : EnumAdapter<Type>(
-        Type::class, 
-        PROTO_2, 
+        Type::class,
+        PROTO_2,
         null
       ) {
         override fun fromValue(`value`: Int): Type? = Type.fromValue(`value`)

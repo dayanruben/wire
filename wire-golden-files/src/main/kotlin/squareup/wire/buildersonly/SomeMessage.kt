@@ -87,11 +87,11 @@ public class SomeMessage private constructor(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<SomeMessage> = object : ProtoAdapter<SomeMessage>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      SomeMessage::class, 
-      "type.googleapis.com/squareup.wire.buildersonly.SomeMessage", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      SomeMessage::class,
+      "type.googleapis.com/squareup.wire.buildersonly.SomeMessage",
+      PROTO_2,
+      null,
       "squareup/wire/some_message.proto"
     ) {
       override fun encodedSize(`value`: SomeMessage): Int {
@@ -197,11 +197,11 @@ public class SomeMessage private constructor(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<NestedMessage> = object : ProtoAdapter<NestedMessage>(
-        FieldEncoding.LENGTH_DELIMITED, 
-        NestedMessage::class, 
-        "type.googleapis.com/squareup.wire.buildersonly.SomeMessage.NestedMessage", 
-        PROTO_2, 
-        null, 
+        FieldEncoding.LENGTH_DELIMITED,
+        NestedMessage::class,
+        "type.googleapis.com/squareup.wire.buildersonly.SomeMessage.NestedMessage",
+        PROTO_2,
+        null,
         "squareup/wire/some_message.proto"
       ) {
         override fun encodedSize(`value`: NestedMessage): Int {
