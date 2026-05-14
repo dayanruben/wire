@@ -4,6 +4,17 @@ Change Log
 Unreleased
 ----------
 
+Version 7.0.0-alpha03
+---------------------
+
+_2026-05-14_
+
+### Common
+
+* Security: Reject negative lengths when skipping groups, so crafted protobuf payloads throw
+  `ProtocolException` instead of unchecked runtime exceptions (#3597,
+  [GHSA-7xpr-hc2w-34m9][GHSA-7xpr-hc2w-34m9], reported by [TrekLaps][TrekLaps])
+
 Version 6.3.0
 ---------------------
 
