@@ -2286,11 +2286,11 @@ public class HundredsFields(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<HundredsFields> = object : ProtoAdapter<HundredsFields>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      HundredsFields::class, 
-      "type.googleapis.com/HundredsFields", 
-      PROTO_3, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      HundredsFields::class,
+      "type.googleapis.com/HundredsFields",
+      PROTO_3,
+      null,
       "squareup/wire/hundreds_redacted.proto"
     ) {
       override fun encodedSize(`value`: HundredsFields): Int {

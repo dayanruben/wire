@@ -87,11 +87,11 @@ public class OuterOpaqueType(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<OuterOpaqueType> = object : ProtoAdapter<OuterOpaqueType>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      OuterOpaqueType::class, 
-      "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      OuterOpaqueType::class,
+      "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType",
+      PROTO_2,
+      null,
       "squareup/wire/opaque_types.proto"
     ) {
       override fun encodedSize(`value`: OuterOpaqueType): Int {
@@ -184,11 +184,11 @@ public class OuterOpaqueType(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<InnerOpaqueType1> = object : ProtoAdapter<InnerOpaqueType1>(
-        FieldEncoding.LENGTH_DELIMITED, 
-        InnerOpaqueType1::class, 
-        "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType.InnerOpaqueType1", 
-        PROTO_2, 
-        null, 
+        FieldEncoding.LENGTH_DELIMITED,
+        InnerOpaqueType1::class,
+        "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType.InnerOpaqueType1",
+        PROTO_2,
+        null,
         "squareup/wire/opaque_types.proto"
       ) {
         override fun encodedSize(`value`: InnerOpaqueType1): Int {
@@ -275,11 +275,11 @@ public class OuterOpaqueType(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<InnerOpaqueType2> = object : ProtoAdapter<InnerOpaqueType2>(
-        FieldEncoding.LENGTH_DELIMITED, 
-        InnerOpaqueType2::class, 
-        "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType.InnerOpaqueType2", 
-        PROTO_2, 
-        null, 
+        FieldEncoding.LENGTH_DELIMITED,
+        InnerOpaqueType2::class,
+        "type.googleapis.com/squareup.protos.opaque_types.OuterOpaqueType.InnerOpaqueType2",
+        PROTO_2,
+        null,
         "squareup/wire/opaque_types.proto"
       ) {
         override fun encodedSize(`value`: InnerOpaqueType2): Int {

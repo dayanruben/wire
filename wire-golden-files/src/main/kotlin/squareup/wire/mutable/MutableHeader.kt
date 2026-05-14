@@ -67,11 +67,11 @@ public class MutableHeader(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<MutableHeader> = object : ProtoAdapter<MutableHeader>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      MutableHeader::class, 
-      "type.googleapis.com/squareup.wire.mutable.Header", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      MutableHeader::class,
+      "type.googleapis.com/squareup.wire.mutable.Header",
+      PROTO_2,
+      null,
       "squareup/wire/mutable_types.proto"
     ) {
       override fun encodedSize(`value`: MutableHeader): Int {

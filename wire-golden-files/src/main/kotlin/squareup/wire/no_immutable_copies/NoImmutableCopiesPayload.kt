@@ -92,11 +92,11 @@ public class NoImmutableCopiesPayload(
     @JvmField
     public val ADAPTER: ProtoAdapter<NoImmutableCopiesPayload> =
         object : ProtoAdapter<NoImmutableCopiesPayload>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      NoImmutableCopiesPayload::class, 
-      "type.googleapis.com/squareup.wire.no_immutable_copies.NoImmutableCopiesPayload", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      NoImmutableCopiesPayload::class,
+      "type.googleapis.com/squareup.wire.no_immutable_copies.NoImmutableCopiesPayload",
+      PROTO_2,
+      null,
       "squareup/wire/no_immutable_copies.proto"
     ) {
       private val headersAdapter: ProtoAdapter<Map<String, String>> by

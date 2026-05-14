@@ -3377,11 +3377,11 @@ public class AllTypes private constructor(
 
     @JvmField
     public val ADAPTER: ProtoAdapter<AllTypes> = object : ProtoAdapter<AllTypes>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      AllTypes::class, 
-      "type.googleapis.com/squareup.wire.alltypes.AllTypes", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      AllTypes::class,
+      "type.googleapis.com/squareup.wire.alltypes.AllTypes",
+      PROTO_2,
+      null,
       "squareup/wire/all_types.proto"
     ) {
       private val map_int32_int32Adapter: ProtoAdapter<Map<Int, Int>> by
@@ -4512,8 +4512,8 @@ public class AllTypes private constructor(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<NestedEnum> = object : EnumAdapter<NestedEnum>(
-        NestedEnum::class, 
-        PROTO_2, 
+        NestedEnum::class,
+        PROTO_2,
         NestedEnum.UNKNOWN
       ) {
         override fun fromValue(`value`: Int): NestedEnum? = NestedEnum.fromValue(`value`)
@@ -4589,11 +4589,11 @@ public class AllTypes private constructor(
     public companion object {
       @JvmField
       public val ADAPTER: ProtoAdapter<NestedMessage> = object : ProtoAdapter<NestedMessage>(
-        FieldEncoding.LENGTH_DELIMITED, 
-        NestedMessage::class, 
-        "type.googleapis.com/squareup.wire.alltypes.AllTypes.NestedMessage", 
-        PROTO_2, 
-        null, 
+        FieldEncoding.LENGTH_DELIMITED,
+        NestedMessage::class,
+        "type.googleapis.com/squareup.wire.alltypes.AllTypes.NestedMessage",
+        PROTO_2,
+        null,
         "squareup/wire/all_types.proto"
       ) {
         override fun encodedSize(`value`: NestedMessage): Int {

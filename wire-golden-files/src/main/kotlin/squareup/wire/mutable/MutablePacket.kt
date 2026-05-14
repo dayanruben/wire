@@ -80,11 +80,11 @@ public class MutablePacket(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<MutablePacket> = object : ProtoAdapter<MutablePacket>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      MutablePacket::class, 
-      "type.googleapis.com/squareup.wire.mutable.Packet", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      MutablePacket::class,
+      "type.googleapis.com/squareup.wire.mutable.Packet",
+      PROTO_2,
+      null,
       "squareup/wire/mutable_types.proto"
     ) {
       override fun encodedSize(`value`: MutablePacket): Int {

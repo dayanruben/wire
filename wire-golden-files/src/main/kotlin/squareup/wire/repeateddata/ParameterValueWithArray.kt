@@ -79,11 +79,11 @@ public class ParameterValueWithArray(
     @JvmField
     public val ADAPTER: ProtoAdapter<ParameterValueWithArray> =
         object : ProtoAdapter<ParameterValueWithArray>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      ParameterValueWithArray::class, 
-      "type.googleapis.com/squareup.wire.repeateddata.ParameterValueWithArray", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      ParameterValueWithArray::class,
+      "type.googleapis.com/squareup.wire.repeateddata.ParameterValueWithArray",
+      PROTO_2,
+      null,
       "squareup/wire/repeated_data.proto"
     ) {
       override fun encodedSize(`value`: ParameterValueWithArray): Int {

@@ -1701,17 +1701,18 @@ class KotlinGenerator private constructor(
     val adapterObject = TypeSpec.anonymousClassBuilder()
       .superclass(ProtoAdapter::class.asClassName().parameterizedBy(parentClassName))
       .addSuperclassConstructorParameter(
-        "\n⇥%T.LENGTH_DELIMITED",
+        "\n⇥%T.LENGTH_DELIMITED,\n" +
+          "%T::class,\n" +
+          "%S,\n" +
+          "%M,\n" +
+          "null,\n" +
+          "%S\n⇤",
         FieldEncoding::class.asClassName(),
-      )
-      .addSuperclassConstructorParameter("\n%T::class", parentClassName)
-      .addSuperclassConstructorParameter("\n%S", type.type.typeUrl!!)
-      .addSuperclassConstructorParameter(
-        "\n%M",
+        parentClassName,
+        type.type.typeUrl!!,
         MemberName(Syntax::class.asClassName(), type.syntax.name),
+        type.location.path,
       )
-      .addSuperclassConstructorParameter("\nnull")
-      .addSuperclassConstructorParameter("\n%S\n⇤", type.location.path)
       .addFunction(encodedSizeFun(type))
       .addFunction(encodeFun(type, reverse = false))
       .addFunction(encodeFun(type, reverse = true))
@@ -2762,12 +2763,14 @@ class KotlinGenerator private constructor(
     val adapterType = ProtoAdapter::class.asClassName().parameterizedBy(parentClassName)
     val adapterObject = TypeSpec.anonymousClassBuilder()
       .superclass(EnumAdapter::class.asClassName().parameterizedBy(parentClassName))
-      .addSuperclassConstructorParameter("\n⇥%T::class", parentClassName)
       .addSuperclassConstructorParameter(
-        "\n%M",
+        "\n⇥%T::class,\n" +
+          "%M,\n" +
+          "%L\n⇤",
+        parentClassName,
         MemberName(Syntax::class.asClassName(), message.syntax.name),
+        message.identity(),
       )
-      .addSuperclassConstructorParameter("\n%L\n⇤", message.identity())
       .addFunction(
         FunSpec.builder("fromValue")
           .addModifiers(OVERRIDE)

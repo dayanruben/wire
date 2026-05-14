@@ -95,11 +95,11 @@ public class BoxedOneOfs(
   public companion object {
     @JvmField
     public val ADAPTER: ProtoAdapter<BoxedOneOfs> = object : ProtoAdapter<BoxedOneOfs>(
-      FieldEncoding.LENGTH_DELIMITED, 
-      BoxedOneOfs::class, 
-      "type.googleapis.com/squareup.wire.boxedoneof.BoxedOneOfs", 
-      PROTO_2, 
-      null, 
+      FieldEncoding.LENGTH_DELIMITED,
+      BoxedOneOfs::class,
+      "type.googleapis.com/squareup.wire.boxedoneof.BoxedOneOfs",
+      PROTO_2,
+      null,
       "squareup/wire/boxed_oneof.proto"
     ) {
       override fun encodedSize(`value`: BoxedOneOfs): Int {
