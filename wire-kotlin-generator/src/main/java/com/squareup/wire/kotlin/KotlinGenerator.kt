@@ -1349,7 +1349,10 @@ class KotlinGenerator private constructor(
           addKdoc("%L\n", field.documentation.sanitizeKdoc())
         }
         if (field.isExtension) {
-          addKdoc("Extension source: %L\n", field.location.withPathOnly())
+          addKdoc(
+            "Extension source: %L\n",
+            field.location.withPathOnly().toString().sanitizeKdoc(),
+          )
         }
       }
     return parameterSpec.build() to propertySpec.build()
@@ -2877,7 +2880,7 @@ class KotlinGenerator private constructor(
           .build(),
       )
     if (field.documentation.isNotEmpty()) {
-      builder.addKdoc("%L\n", field.documentation)
+      builder.addKdoc("%L\n", field.documentation.sanitizeKdoc())
     }
     builder.primaryConstructor(
       FunSpec.constructorBuilder()
