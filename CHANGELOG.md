@@ -4,6 +4,16 @@ Change Log
 Unreleased
 ----------
 
+Version 6.4.0
+---------------------
+
+_2026-05-15_
+
+### Common
+
+* Security: Escape comment delimiters in generated documentation for Java, Kotlin, and Swift,
+  preventing malicious proto documentation from injecting source code into generated files (#3600)
+
 Version 7.0.0-alpha03
 ---------------------
 
